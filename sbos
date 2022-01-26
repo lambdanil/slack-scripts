@@ -1,0 +1,7 @@
+#!/usr/bin/python3
+import os
+import sys
+args = list(sys.argv)
+args.remove(args[0])
+pkg = args[0]
+os.system(f'find /var/lib/sbopkg/SBo-git/ | grep {pkg} | sed s,/var/lib/sbopkg/SBo-git/,, | grep -v README | grep -v "doinst.sh" | grep -v slack-desc | grep -v "pixmaps" | grep -v "\." | grep -v LICENSE ')

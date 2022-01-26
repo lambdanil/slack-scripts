@@ -1,0 +1,7 @@
+#!/usr/bin/python3
+import os
+import sys
+args = list(sys.argv)
+args.remove(args[0])
+pkg = args[0]
+os.system(f"cat /var/lib/sbopkg/SBo-git/*/{pkg}/{pkg}.info")
