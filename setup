@@ -1,0 +1,10 @@
+#!/bin/bash
+# Enable rpmfusion repository
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+# Enable flathub repository
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+# Install codecs
+sudo dnf install gstreamer1-plugins-base gstreamer1-plugins-good gstreamer1-plugins-ugly gstreamer1-plugins-bad-free gstreamer1-plugins-bad-free gstreamer1-plugins-bad-freeworld gstreamer1-plugins-bad-free-extras ffmpeg
+# Add additional dnf options
+sudo echo "fastestmirror=1" >> /etc/dnf/dnf.conf
+sudo echo "max_parallel_downloads=10" >> /etc/dnf/dnf.conf
